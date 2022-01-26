@@ -11,17 +11,21 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TaskListComponent } from './TaskList/TaskList.component';
 import { DeleteTaskComponent } from './DeleteTask/DeleteTask.component';
+import { CreateTaskComponent } from './CreateTask/CreateTask.component';
+import { EditTaskComponent } from './EditTask/EditTask.component';
 
 
 @NgModule({
-  declarations: [			
+  declarations: [					
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
       TaskListComponent,
-      DeleteTaskComponent
+      DeleteTaskComponent,
+      CreateTaskComponent,
+      EditTaskComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +36,9 @@ import { DeleteTaskComponent } from './DeleteTask/DeleteTask.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'taskList', component: TaskListComponent},
-      { path: 'deleteTask', component: DeleteTaskComponent}
+      { path: 'deleteTask', component: DeleteTaskComponent},
+      { path: 'createTask', component: CreateTaskComponent},
+      { path: 'editTask', component: EditTaskComponent}
     ])
   ],
   providers: [],

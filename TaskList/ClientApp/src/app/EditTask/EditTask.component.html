@@ -1,0 +1,12 @@
+<h3 style="text-align: center;">Edit Task</h3>
+<br>
+<p>Task Name:</p>
+<input id="newName{{id}}" type="text" maxlength="80" minlength="1" value="{{task.taskName}}"/><br><br>
+<p>Task Description:</p>
+<textarea id="newDescription{{id}}" type="text" maxlength="150" minlength="1" cols="50" rows="5" value="{{task.taskDescription}}"></textarea><br><br>
+<p>Completed?</p>
+<select id="newCompleted{{id}}" value="{{task.completed}}">
+  <option value="true">True</option>
+  <option value="false">False</option>
+</select><br><br>
+<button (click)="UpdateTask()" style="margin-right: 8%;">Submit</button>

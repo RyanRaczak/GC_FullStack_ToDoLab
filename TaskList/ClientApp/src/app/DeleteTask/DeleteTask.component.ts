@@ -26,7 +26,7 @@ export class DeleteTaskComponent implements OnInit {
 
   DeleteTask(id:number){
     this.taskService.DeleteTask(id).subscribe(
-      (response:any) => { console.log(response) }
+      (response:any) => { location.reload(); }
     );
   }
 

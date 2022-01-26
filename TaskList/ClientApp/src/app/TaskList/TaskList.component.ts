@@ -11,6 +11,10 @@ import { TaskService } from '../Task.service';
 export class TaskListComponent implements OnInit {
 
   tasks?: Task[] = [];
+  formDiv:boolean = false;
+  listDiv:boolean = true;
+  allButForm:boolean = true;
+  newTaskButton:boolean = true;
 
   constructor(private taskService: TaskService) {
     this.taskService.GetTasks().subscribe(
@@ -29,31 +33,38 @@ export class TaskListComponent implements OnInit {
   }
 
   DeleteTask(id:number){
-    let displayPanel = document.getElementsByClassName("taskList");
+    this.listDiv = false;
     let deletePanel = document.getElementById("del"+id);
-    let panels = Array.from(displayPanel);
-    for (let index = 0; index < panels.length; index++) {
-      const panel = displayPanel[index];
-      panel.style.display = "none";
-    }
-    // displayPanel.forEach(element => {
-      
-    // });
-    // displayPanel.style.display = "none";
-    deletePanel.style.display = "block";
+    deletePanel.style.display = "";
+  }
 
-    // if(displayPanel.style.display === "" || displayPanel.style.display === "inherit"){
-    //   displayPanel.style.display = "none";
-    //   deletePanel.style.display = "";
-    // }
+  CreateTask(){
+    this.formDiv = true;
+    this.allButForm = false;
+  }
+
+  EditTask(id:number){
+    this.listDiv = false;
+    this.newTaskButton = false;
+    let deletePanel = document.getElementById("edit"+id);
+    deletePanel.style.display = "";
   }
 
   DeleteCancel(id:number){
-    let displayPanel = document.getElementById("taskList");
+    this.listDiv = true;
     let deletePanel = document.getElementById("del"+id);
-
-    displayPanel.style.display = "";
     deletePanel.style.display = "none";
   }
 
+  CreateCancel(){
+    this.formDiv = false;
+    this.allButForm = true;
+  }
+
+  EditCancel(id:number){
+    this.listDiv = true;
+    this.newTaskButton = true;
+    let deletePanel = document.getElementById("edit"+id);
+    deletePanel.style.display = "none";
+  }
 }

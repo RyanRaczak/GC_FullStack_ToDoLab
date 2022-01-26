@@ -1,0 +1,30 @@
+<h2 style="text-align: center;">Task List</h2>
+<div id="taskForm">
+  <!--FORM COMPONENT-->
+</div>
+
+<div id="hideAllButForm">
+<button style="margin-left: 2%;">New Task</button>
+
+  <div *ngFor="let task of tasks"  >
+    <div class="taskList" style="border: 2px solid black; padding: 2%; margin: 2%;">
+      <h4>{{task.taskName}}</h4>
+      <p>{{task.taskDescription}}</p>
+      <p>{{task.completed}}</p>
+      <p>{{task.id}}</p>
+      <button (click)="DeleteTask(task.id)">Delete</button><button>Edit</button>
+    </div>
+
+    <div id="del{{task.id}}"  style="display: none;">
+      <!--DELETE COMPONENT-->
+      <app-DeleteTask [id]=task.id></app-DeleteTask>
+      <button (click)="DeleteCancel(task.id)">Cancel</button>
+    </div>
+    
+    <div id="edit{{task.id}}">
+      <!--EDIT COMPONENT-->
+    </div>
+    
+  </div>
+
+</div>
